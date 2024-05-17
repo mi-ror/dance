@@ -1,5 +1,5 @@
-from player import Player
 from table import Table
+
 
 class MonsterS:
     def __init__(self):

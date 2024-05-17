@@ -15,7 +15,7 @@ class Card:
 
 class CardMusic(SubCard):
     def __init__(self, music: int):
-        assert 0 <= music and music <= 3, f"Wrong music: {music}"
+        assert 0 <= music <= 3, f"Wrong music: {music}"
         self.music: int = music
 
     def __str__(self):

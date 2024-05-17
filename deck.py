@@ -23,19 +23,19 @@ def get_monsters_shuffled() -> list[Monster]:
     return res
 
 
-def load_card_deck() -> None:
+def load_card_deck() -> list[Card]:
     global CARD_DECK
     CARD_DECK = []
     with open('cards.json') as mf:
         data = json.load(mf)
     for e in data:
-        type = e['type']
-        if type == 'stub':
+        card_type = e['type']
+        if card_type == 'stub':
             subcard = None
-        elif type == 'music':
+        elif card_type == 'music':
             subcard = CardMusic(e['music'])
         else:
-            raise Exception(f'unknown card type: {type}')
+            raise Exception(f'unknown card type: {card_type}')
         m = Card(subcard)
         CARD_DECK.append(m)
     return CARD_DECK

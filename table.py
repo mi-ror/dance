@@ -41,7 +41,7 @@ class Table:
             picked_m = p.do_cabeseo(self)
             self.cabeseo.remove(picked_m)
 
-    def do_turn(self) -> None:
+    def do_turn(self) -> bool:
         i = self.cur_i()
         if self.players[i].do_turn(self):
             self.player_last_turn[i] = self._cur_i
