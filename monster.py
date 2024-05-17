@@ -1,15 +1,12 @@
 class Monster:
-    def __init__(self, stats):
+    def __init__(self, stats: list[int]):
         """
-        id - uniq id
         stats - [T, V, M, N] of int
         """
-        self.id = id
-        self.stats = stats
-        for i in range(len(self.stats)):
-            self.stats[i] = int(self.stats[i])
+        assert len(stats) == 4, f"wrong stats: {*stats,}"
+        self.stats: list[int] = stats
 
-    def get_stat(self, music):
+    def get_stat(self, music: int) -> int:
         return self.stats[music - 1]
 
     def __str__(self):

@@ -1,4 +1,5 @@
 import deck
+from ai_realization import *
 from table import Table
 import statistics
 
@@ -9,7 +10,7 @@ def play_game():
     c_deck = deck.get_cards_shuffled()
     # [print(m) for m in c_deck]
     # print('DEAL CARDS...')
-    t = Table(4, m_deck, c_deck)
+    t = Table(4, m_deck, c_deck, AI_T800())
     # print(t)
     # print('CABESEO...')
     t.do_cabeseo()
@@ -22,7 +23,9 @@ def play_game():
 
 
 def main():
-    for _ in range(30 * 1000):
+    deck.load_monster_deck()
+    deck.load_card_deck()
+    for _ in range(3 * 1000):
         play_game()
     print('###STATISTICS###')
     statistics.print_statistics()

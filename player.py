@@ -1,21 +1,24 @@
+from ai import AI
 from card import *
+from monster import Monster
+
 
 class Player:
-    def __init__(self, i, hand, ai):
-        self.i = int(i)
-        self.hand = hand
-        self.ai = ai
-        self.monster = None
-        self.ropa = []
+    def __init__(self, i: int, hand: list[Card], ai: AI):
+        self.i: int = i
+        self.hand: list[Card] = hand
+        self.ai: AI = ai
+        self.monster: Monster | None = None
+        self.ropa: list[Card] = []
 
-    def do_cabeseo(self, table):
+    def do_cabeseo(self, table) -> Monster:
         """
         :returns monster_card to pick
         """
         self.monster = self.ai.pick_up_monster(table, self)
         return self.monster
 
-    def do_turn(self, table):
+    def do_turn(self, table) -> bool:
         if not self.hand:
             return False
 
