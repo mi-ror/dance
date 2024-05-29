@@ -31,12 +31,11 @@ def main():
     parser = argparse.ArgumentParser(description="Simulate card game 'Dance with Monsters'.")
     parser.add_argument('--player-nums', type=int, action='store', default=6, help='count of players')
     args = parser.parse_args()
-    l.info(args.player_nums)
 
     deck.load_monster_deck()
     deck.load_card_deck()
 
-    for _ in range(3 * 1):
+    for _ in range(30 * 1000):
         play_game(args.player_nums)
 
     print('###STATISTICS###')
